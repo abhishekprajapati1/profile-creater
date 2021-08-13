@@ -80,19 +80,17 @@ function deleted(itemIndex){
 
 function edited(itemIndex){
     var mI = itemIndex;
+    const oldBtn = document.getElementById('boxBtn');
+    str = `<button type="submit" class="updatebtn" onclick="updateprofile(${mI}); return false;" id="update-profile-btn">Update Profile</button>`;
     
-
-
-    const updateBtn = document.getElementById('update-profile-btn');
-
-    if(updateBtn.classList.contains('hidden-button')){
-        updateBtn.classList.remove('hidden-button');
-    }
+    oldBtn.innerHTML = str;
 
     console.log('editing....');
+  
     if(localStorage.getItem('user') == null){
         console.log("updating storage...");
         userArray = [];
+        
         localStorage.setItem('user', JSON.stringify(userArray));
     }
     else{
@@ -112,14 +110,38 @@ function edited(itemIndex){
     usrphone.value = d[2];
     usrage.value = d[3];
 
-    updateBtn.addEventListener('click', (itemIndex)=>{
-        console.log("update button was clicked");
-        
-    })
+    
     
 }
 
+function updateprofile(itemIndex){
+    if(localStorage.getItem('user') == null){
+        console.log("updating storage...");
+        userArray = [];
+        userArray.push([usrname, usremail, usrphone, usrage]);
+        localStorage.setItem('user', JSON.stringify(userArray));
+    }
+    else{
+        userArrayStr = localStorage.getItem('user');
+        userArray = JSON.parse(userArrayStr);
+    }
 
+    let ourPD = userArray[itemIndex];
+    
+    let usrname = document.getElementById('name');
+    let usremail = document.getElementById('email');
+    let usrphone = document.getElementById('phone');
+    let usrage = document.getElementById('age');
+
+    ourPD[0] = usrname.value;
+    ourPD[1] = usremail.value;
+    ourPD[2] = usrphone.value;
+    ourPD[3] = usrage.value;
+
+    localStorage.setItem('user', JSON.stringify(userArray));
+
+    update();
+}
 
 
 
