@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Create a Profile</h1>
+        </header>
+
+        <div class="container">
+
+            <section class="left" id="form-container">
+                <h2 class="title">Add Details</h2>
+                <form id="add_detail_form" action="" method="POST">
+
+                    <div class="entry">
+                        <label for="name">Name of candidate* :</label>
+                        <input class="form-field" type="text" name="name" id="name" required />
+                    </div>
+
+                    <div class="entry">
+                        <label for="email">Email-id* :</label>
+                        <input class="form-field" type="email" name="email" id="email" required />
+                    </div>
+
+                    <div class="entry">
+                        <label for="phone">Contact no.* :</label>
+                        <input class="form-field" type="text" name="phone" id="phone" required />
+                    </div>
+
+                    <div class="entry">
+                        <label for="age">Age of candidate* :</label>
+                        <input class="form-field" type="number" name="age" id="age" required />
+                    </div>
+
+                    <button type="submit" onclick="return false;" id="add-profile-btn">Add Profile</button>
+                    <button type="submit" class="updatebtn hidden-button" onclick="return false;" id="update-profile-btn">Update Profile</button>
+                    
+
+                </form>
+            </section>
+
+
+            <section class="right">
+
+                <h2 class="title">Profiles</h2>
+                <div class="profile-container" id="profiler">
+                    
+
+
+
+
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+
+    <!-- js file is linked here -->
+    <script src="./index.js"></script>
+</body>
+
+</html>
