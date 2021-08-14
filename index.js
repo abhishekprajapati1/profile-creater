@@ -81,7 +81,7 @@ function deleted(itemIndex){
 function edited(itemIndex){
     var mI = itemIndex;
     const oldBtn = document.getElementById('boxBtn');
-    str = `<button type="submit" class="updatebtn" onclick="updateprofile(${mI}); return false;" id="update-profile-btn">Update Profile</button>`;
+    str = `<button type="submit" class="updatebtn" onclick="updateprofile(${mI}); return True;" id="update-profile-btn">Update Profile</button>`;
     
     oldBtn.innerHTML = str;
 
@@ -125,7 +125,7 @@ function updateprofile(itemIndex){
         userArrayStr = localStorage.getItem('user');
         userArray = JSON.parse(userArrayStr);
     }
-
+    let formvar = document.getElementById('add_detail_form');
     let ourPD = userArray[itemIndex];
     
     let usrname = document.getElementById('name');
@@ -139,7 +139,8 @@ function updateprofile(itemIndex){
     ourPD[3] = usrage.value;
 
     localStorage.setItem('user', JSON.stringify(userArray));
-
+    formvar.reset();
+    location.reload();
     update();
 }
 
